@@ -78,7 +78,7 @@ export default function DECard({ de, onSwipe, isTop }: DECardProps) {
       data-testid={`de-card-${de.id}`}
     >
       <div 
-        className="relative w-[800px] max-w-[90vw] rounded-3xl overflow-hidden"
+        className="relative w-[900px] max-w-[95vw] rounded-3xl overflow-hidden"
         style={{
           background: `linear-gradient(135deg, ${primaryColor}20, ${secondaryColor}30)`,
         }}
@@ -114,9 +114,9 @@ export default function DECard({ de, onSwipe, isTop }: DECardProps) {
           GEÇ
         </motion.div>
 
-        <div className="relative z-10 flex flex-row items-stretch min-h-[320px]">
+        <div className="relative z-10 flex flex-row items-stretch min-h-[360px]">
           {de.screenshot && (
-            <div className="w-[420px] flex-shrink-0 overflow-hidden rounded-l-3xl">
+            <div className="w-[520px] flex-shrink-0 overflow-hidden rounded-l-3xl">
               <img
                 src={`/de_screenshots/${de.screenshot}`}
                 alt={`${de.name} screenshot`}
@@ -126,7 +126,7 @@ export default function DECard({ de, onSwipe, isTop }: DECardProps) {
                 }}
               />
               <div 
-                className="absolute inset-0 w-[420px]"
+                className="absolute inset-0 w-[520px]"
                 style={{
                   background: `linear-gradient(90deg, transparent 60%, ${primaryColor}40 100%)`,
                 }}
