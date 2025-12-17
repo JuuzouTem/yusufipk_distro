@@ -2,12 +2,8 @@ import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { serveStatic } from "./static";
 import { createServer } from "http";
-import path from "path";
 
 const app = express();
-
-// Serve DE screenshots statically
-app.use('/de_screenshots', express.static(path.join(process.cwd(), 'attached_assets/de_screenshots')));
 const httpServer = createServer(app);
 
 declare module "http" {
