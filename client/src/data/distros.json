@@ -636,8 +636,7 @@
       "style": "modern",
       "resourceUsage": "medium-high",
       "customization": "extreme",
-      "colorPalette": ["#1D99F3", "#3DAEE9", "#0D5A8F"],
-      "image": "kde.png"
+      "colorPalette": ["#1D99F3", "#3DAEE9", "#0D5A8F"]
     },
     {
       "id": "gnome",
@@ -646,8 +645,7 @@
       "style": "minimalist",
       "resourceUsage": "medium-high",
       "customization": "limited",
-      "colorPalette": ["#4A86CF", "#3584E4", "#1C71D8"],
-      "image": "gnome.png"
+      "colorPalette": ["#4A86CF", "#3584E4", "#1C71D8"]
     },
     {
       "id": "xfce",
@@ -656,8 +654,7 @@
       "style": "traditional",
       "resourceUsage": "low",
       "customization": "moderate",
-      "colorPalette": ["#2EB8E6", "#00AAD4", "#007EA8"],
-      "image": "xfce.png"
+      "colorPalette": ["#2EB8E6", "#00AAD4", "#007EA8"]
     },
     {
       "id": "cinnamon",
@@ -666,8 +663,7 @@
       "style": "traditional",
       "resourceUsage": "medium",
       "customization": "good",
-      "colorPalette": ["#87CF3E", "#6BBD2B", "#4E9A1A"],
-      "image": "cinnamon.png"
+      "colorPalette": ["#87CF3E", "#6BBD2B", "#4E9A1A"]
     },
     {
       "id": "mate",
@@ -676,8 +672,7 @@
       "style": "traditional",
       "resourceUsage": "low-medium",
       "customization": "good",
-      "colorPalette": ["#6CAD54", "#4E8A3A", "#356425"],
-      "image": "mate.png"
+      "colorPalette": ["#6CAD54", "#4E8A3A", "#356425"]
     },
     {
       "id": "lxqt",
@@ -686,8 +681,7 @@
       "style": "minimal",
       "resourceUsage": "very-low",
       "customization": "moderate",
-      "colorPalette": ["#0099CC", "#0077AA", "#005588"],
-      "image": "lxqt.png"
+      "colorPalette": ["#0099CC", "#0077AA", "#005588"]
     },
     {
       "id": "budgie",
@@ -696,8 +690,7 @@
       "style": "modern",
       "resourceUsage": "medium",
       "customization": "moderate",
-      "colorPalette": ["#6BCA81", "#4CAF50", "#388E3C"],
-      "image": "budgie.png"
+      "colorPalette": ["#6BCA81", "#4CAF50", "#388E3C"]
     },
     {
       "id": "pantheon",
@@ -706,8 +699,7 @@
       "style": "mac-like",
       "resourceUsage": "medium",
       "customization": "very-limited",
-      "colorPalette": ["#64BAFF", "#3689E6", "#0D52BF"],
-      "image": "pantheon.png"
+      "colorPalette": ["#64BAFF", "#3689E6", "#0D52BF"]
     },
     {
       "id": "cosmic",
@@ -716,8 +708,7 @@
       "style": "modern",
       "resourceUsage": "medium",
       "customization": "good",
-      "colorPalette": ["#FAA41A", "#48B9C7", "#574F4A"],
-      "image": "cosmic.png"
+      "colorPalette": ["#FAA41A", "#48B9C7", "#574F4A"]
     },
     {
       "id": "dde",
@@ -726,8 +717,7 @@
       "style": "beautiful",
       "resourceUsage": "medium-high",
       "customization": "moderate",
-      "colorPalette": ["#0082FC", "#006DD9", "#0052A3"],
-      "image": "dde.png"
+      "colorPalette": ["#0082FC", "#006DD9", "#0052A3"]
     },
     {
       "id": "i3",
@@ -736,8 +726,7 @@
       "style": "minimal-tiling",
       "resourceUsage": "very-low",
       "customization": "extreme",
-      "colorPalette": ["#285577", "#1C3D5A", "#122A40"],
-      "image": "i3.png"
+      "colorPalette": ["#285577", "#1C3D5A", "#122A40"]
     },
     {
       "id": "hyprland",
@@ -746,8 +735,7 @@
       "style": "minimal-tiling",
       "resourceUsage": "low",
       "customization": "extreme",
-      "colorPalette": ["#00D4AA", "#00B894", "#009874"],
-      "image": "hyprland.png"
+      "colorPalette": ["#00D4AA", "#00B894", "#009874"]
     }
   ],
   "criticalQuestions": [

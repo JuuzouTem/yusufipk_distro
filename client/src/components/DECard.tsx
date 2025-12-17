@@ -10,13 +10,10 @@ interface DECardProps {
     resourceUsage: string;
     customization: string;
     colorPalette: string[];
-    image?: string;
   };
   onSwipe: (direction: 'left' | 'right' | 'super') => void;
   isTop: boolean;
 }
-
-const deImages: Record<string, string> = {};
 
 const styleIcons: Record<string, typeof Monitor> = {
   'modern': Settings,
@@ -116,35 +113,16 @@ export default function DECard({ de, onSwipe, isTop }: DECardProps) {
           GEÇ
         </motion.div>
 
-        <div className="relative z-10 flex flex-col items-center justify-center p-8 text-center">
-          {de.image ? (
-            <div 
-              className="mb-6 w-full max-w-lg h-48 rounded-xl overflow-hidden"
-              style={{
-                boxShadow: `0 10px 40px ${primaryColor}50`,
-              }}
-            >
-              <img 
-                src={`/de_screenshots/${de.image}`}
-                alt={de.name}
-                className="w-full h-full object-cover"
-                onError={(e) => {
-                  e.currentTarget.style.display = 'none';
-                  e.currentTarget.parentElement!.style.display = 'none';
-                }}
-              />
-            </div>
-          ) : (
-            <div 
-              className="mb-6 flex h-24 w-24 items-center justify-center rounded-2xl"
-              style={{
-                background: `linear-gradient(135deg, ${primaryColor}, ${secondaryColor})`,
-                boxShadow: `0 10px 40px ${primaryColor}50`,
-              }}
-            >
-              <StyleIcon className="h-12 w-12 text-white" />
-            </div>
-          )}
+        <div className="relative z-10 flex flex-col items-center justify-center p-12 text-center">
+          <div 
+            className="mb-6 flex h-24 w-24 items-center justify-center rounded-2xl"
+            style={{
+              background: `linear-gradient(135deg, ${primaryColor}, ${secondaryColor})`,
+              boxShadow: `0 10px 40px ${primaryColor}50`,
+            }}
+          >
+            <StyleIcon className="h-12 w-12 text-white" />
+          </div>
 
           <h2 
             className="mb-3 font-['Space_Grotesk'] text-4xl font-bold"
