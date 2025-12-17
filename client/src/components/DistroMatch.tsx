@@ -144,7 +144,7 @@ export default function DistroMatch() {
     <div className="relative min-h-screen">
       <DynamicBackground colors={bgColors} />
       
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen py-8">
+      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen pt-24 pb-8">
         {stage === 'de' && (
           <>
             <motion.div

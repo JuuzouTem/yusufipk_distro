@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <div className="relative min-h-screen w-full overflow-hidden">
       <Header />
-      <main className="pt-16">
+      <main>
         <DistroMatch />
       </main>
     </div>
