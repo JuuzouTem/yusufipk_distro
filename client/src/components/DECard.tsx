@@ -78,7 +78,7 @@ export default function DECard({ de, onSwipe, isTop }: DECardProps) {
       data-testid={`de-card-${de.id}`}
     >
       <div 
-        className="relative w-[700px] max-w-[85vw] rounded-3xl overflow-hidden"
+        className="relative w-[800px] max-w-[90vw] rounded-3xl overflow-hidden"
         style={{
           background: `linear-gradient(135deg, ${primaryColor}20, ${secondaryColor}30)`,
         }}
@@ -114,9 +114,9 @@ export default function DECard({ de, onSwipe, isTop }: DECardProps) {
           GEÇ
         </motion.div>
 
-        <div className="relative z-10 flex flex-row items-stretch">
+        <div className="relative z-10 flex flex-row items-stretch min-h-[320px]">
           {de.screenshot && (
-            <div className="w-[320px] flex-shrink-0 overflow-hidden rounded-l-3xl">
+            <div className="w-[420px] flex-shrink-0 overflow-hidden rounded-l-3xl">
               <img
                 src={`/de_screenshots/${de.screenshot}`}
                 alt={`${de.name} screenshot`}
@@ -126,7 +126,7 @@ export default function DECard({ de, onSwipe, isTop }: DECardProps) {
                 }}
               />
               <div 
-                className="absolute inset-0 w-[320px]"
+                className="absolute inset-0 w-[420px]"
                 style={{
                   background: `linear-gradient(90deg, transparent 60%, ${primaryColor}40 100%)`,
                 }}
@@ -134,31 +134,31 @@ export default function DECard({ de, onSwipe, isTop }: DECardProps) {
             </div>
           )}
           
-          <div className="flex flex-1 flex-col items-center justify-center p-8 text-center">
+          <div className="flex flex-1 flex-col items-center justify-center p-6 text-center">
             <div 
-              className="mb-4 flex h-16 w-16 items-center justify-center rounded-xl"
+              className="mb-3 flex h-12 w-12 items-center justify-center rounded-lg"
               style={{
                 background: `linear-gradient(135deg, ${primaryColor}, ${secondaryColor})`,
-                boxShadow: `0 8px 30px ${primaryColor}50`,
+                boxShadow: `0 6px 20px ${primaryColor}50`,
               }}
             >
-              <StyleIcon className="h-8 w-8 text-white" />
+              <StyleIcon className="h-6 w-6 text-white" />
             </div>
 
             <h2 
-              className="mb-2 font-['Space_Grotesk'] text-3xl font-bold"
+              className="mb-1 font-['Space_Grotesk'] text-2xl font-bold"
               style={{ color: primaryColor }}
             >
               {de.name}
             </h2>
 
-            <p className="mb-6 max-w-sm text-base text-gray-300">
+            <p className="mb-4 max-w-xs text-sm text-gray-300">
               {de.description}
             </p>
 
-            <div className="flex flex-wrap justify-center gap-2">
+            <div className="flex flex-wrap justify-center gap-1.5">
               <span 
-                className="rounded-full px-3 py-1.5 text-xs font-medium"
+                className="rounded-full px-2.5 py-1 text-[10px] font-medium"
                 style={{ 
                   backgroundColor: `${primaryColor}30`,
                   color: primaryColor,
@@ -167,7 +167,7 @@ export default function DECard({ de, onSwipe, isTop }: DECardProps) {
                 {styleLabels[de.style] || de.style}
               </span>
               <span 
-                className="rounded-full px-3 py-1.5 text-xs font-medium"
+                className="rounded-full px-2.5 py-1 text-[10px] font-medium"
                 style={{ 
                   backgroundColor: `${secondaryColor}30`,
                   color: secondaryColor,
@@ -176,7 +176,7 @@ export default function DECard({ de, onSwipe, isTop }: DECardProps) {
                 {resourceLabels[de.resourceUsage] || de.resourceUsage}
               </span>
               <span 
-                className="rounded-full px-3 py-1.5 text-xs font-medium bg-white/10 text-gray-300"
+                className="rounded-full px-2.5 py-1 text-[10px] font-medium bg-white/10 text-gray-300"
               >
                 Özelleştirme: {de.customization}
               </span>
