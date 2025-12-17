@@ -647,7 +647,7 @@
       "resourceUsage": "medium-high",
       "customization": "limited",
       "colorPalette": ["#4A86CF", "#3584E4", "#1C71D8"],
-      "screenshot": "gnome.png"
+      "screenshot": "gnome.webp"
     },
     {
       "id": "xfce",
@@ -657,7 +657,7 @@
       "resourceUsage": "low",
       "customization": "moderate",
       "colorPalette": ["#2EB8E6", "#00AAD4", "#007EA8"],
-      "screenshot": "xfce.png"
+      "screenshot": "xfce.jpg"
     },
     {
       "id": "cinnamon",
@@ -667,7 +667,7 @@
       "resourceUsage": "medium",
       "customization": "good",
       "colorPalette": ["#87CF3E", "#6BBD2B", "#4E9A1A"],
-      "screenshot": "cinnamon.png"
+      "screenshot": "cinnamon.jpg"
     },
     {
       "id": "mate",
@@ -697,7 +697,7 @@
       "resourceUsage": "medium",
       "customization": "moderate",
       "colorPalette": ["#6BCA81", "#4CAF50", "#388E3C"],
-      "screenshot": "budgie.png"
+      "screenshot": "budgie.avif"
     },
     {
       "id": "pantheon",
@@ -717,7 +717,7 @@
       "resourceUsage": "medium",
       "customization": "good",
       "colorPalette": ["#FAA41A", "#48B9C7", "#574F4A"],
-      "screenshot": "cosmic.png"
+      "screenshot": "cosmic.jpg"
     },
     {
       "id": "dde",
@@ -727,7 +727,7 @@
       "resourceUsage": "medium-high",
       "customization": "moderate",
       "colorPalette": ["#0082FC", "#006DD9", "#0052A3"],
-      "screenshot": "dde.png"
+      "screenshot": "dde.webp"
     },
     {
       "id": "i3",
@@ -737,7 +737,7 @@
       "resourceUsage": "very-low",
       "customization": "extreme",
       "colorPalette": ["#285577", "#1C3D5A", "#122A40"],
-      "screenshot": "i3.png"
+      "screenshot": "i3.webp"
     },
     {
       "id": "hyprland",
@@ -747,7 +747,7 @@
       "resourceUsage": "low",
       "customization": "extreme",
       "colorPalette": ["#00D4AA", "#00B894", "#009874"],
-      "screenshot": "hyprland.png"
+      "screenshot": "hyprland.jpeg"
     }
   ],
   "criticalQuestions": [
