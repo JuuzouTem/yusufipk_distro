@@ -39,7 +39,6 @@ export default function DistroMatch() {
       setLikedDEs(prev => [...prev, currentDE.name]);
     } else if (direction === 'super') {
       setSuperLikedDEs(prev => [...prev, currentDE.name]);
-      setLikedDEs(prev => [...prev, currentDE.name]);
     } else {
       setDislikedDEs(prev => [...prev, currentDE.name]);
     }

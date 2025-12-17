@@ -10,6 +10,7 @@ interface DECardProps {
     resourceUsage: string;
     customization: string;
     colorPalette: string[];
+    screenshot?: string;
   };
   onSwipe: (direction: 'left' | 'right' | 'super') => void;
   isTop: boolean;
@@ -113,52 +114,73 @@ export default function DECard({ de, onSwipe, isTop }: DECardProps) {
           GEÇ
         </motion.div>
 
-        <div className="relative z-10 flex flex-col items-center justify-center p-12 text-center">
-          <div 
-            className="mb-6 flex h-24 w-24 items-center justify-center rounded-2xl"
-            style={{
-              background: `linear-gradient(135deg, ${primaryColor}, ${secondaryColor})`,
-              boxShadow: `0 10px 40px ${primaryColor}50`,
-            }}
-          >
-            <StyleIcon className="h-12 w-12 text-white" />
-          </div>
-
-          <h2 
-            className="mb-3 font-['Space_Grotesk'] text-4xl font-bold"
-            style={{ color: primaryColor }}
-          >
-            {de.name}
-          </h2>
-
-          <p className="mb-8 max-w-md text-lg text-gray-300">
-            {de.description}
-          </p>
-
-          <div className="flex flex-wrap justify-center gap-3">
-            <span 
-              className="rounded-full px-4 py-2 text-sm font-medium"
-              style={{ 
-                backgroundColor: `${primaryColor}30`,
-                color: primaryColor,
+        <div className="relative z-10 flex flex-row items-stretch">
+          {de.screenshot && (
+            <div className="w-[320px] flex-shrink-0 overflow-hidden rounded-l-3xl">
+              <img
+                src={`/de_screenshots/${de.screenshot}`}
+                alt={`${de.name} screenshot`}
+                className="h-full w-full object-cover"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                }}
+              />
+              <div 
+                className="absolute inset-0 w-[320px]"
+                style={{
+                  background: `linear-gradient(90deg, transparent 60%, ${primaryColor}40 100%)`,
+                }}
+              />
+            </div>
+          )}
+          
+          <div className="flex flex-1 flex-col items-center justify-center p-8 text-center">
+            <div 
+              className="mb-4 flex h-16 w-16 items-center justify-center rounded-xl"
+              style={{
+                background: `linear-gradient(135deg, ${primaryColor}, ${secondaryColor})`,
+                boxShadow: `0 8px 30px ${primaryColor}50`,
               }}
             >
-              {styleLabels[de.style] || de.style}
-            </span>
-            <span 
-              className="rounded-full px-4 py-2 text-sm font-medium"
-              style={{ 
-                backgroundColor: `${secondaryColor}30`,
-                color: secondaryColor,
-              }}
+              <StyleIcon className="h-8 w-8 text-white" />
+            </div>
+
+            <h2 
+              className="mb-2 font-['Space_Grotesk'] text-3xl font-bold"
+              style={{ color: primaryColor }}
             >
-              {resourceLabels[de.resourceUsage] || de.resourceUsage}
-            </span>
-            <span 
-              className="rounded-full px-4 py-2 text-sm font-medium bg-white/10 text-gray-300"
-            >
-              Özelleştirme: {de.customization}
-            </span>
+              {de.name}
+            </h2>
+
+            <p className="mb-6 max-w-sm text-base text-gray-300">
+              {de.description}
+            </p>
+
+            <div className="flex flex-wrap justify-center gap-2">
+              <span 
+                className="rounded-full px-3 py-1.5 text-xs font-medium"
+                style={{ 
+                  backgroundColor: `${primaryColor}30`,
+                  color: primaryColor,
+                }}
+              >
+                {styleLabels[de.style] || de.style}
+              </span>
+              <span 
+                className="rounded-full px-3 py-1.5 text-xs font-medium"
+                style={{ 
+                  backgroundColor: `${secondaryColor}30`,
+                  color: secondaryColor,
+                }}
+              >
+                {resourceLabels[de.resourceUsage] || de.resourceUsage}
+              </span>
+              <span 
+                className="rounded-full px-3 py-1.5 text-xs font-medium bg-white/10 text-gray-300"
+              >
+                Özelleştirme: {de.customization}
+              </span>
+            </div>
           </div>
         </div>
       </div>

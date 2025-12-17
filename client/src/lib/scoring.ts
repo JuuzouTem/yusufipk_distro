@@ -57,20 +57,21 @@ export function calculateDistroScores(preferences: UserPreferences): ScoredDistr
   });
 
   preferences.superLikedDEs.forEach(de => {
-    const deKey = de.toLowerCase().replace(/\s+/g, '').replace('plasma', '');
-    const matchingDistros = DE_SCORES[deKey] || [];
+    const deKey = de.toLowerCase().replace(/\s+/g, '').replace('plasma', '').replace('/', '');
+    const matchingDistros = DE_SCORES[deKey] || DE_SCORES[de.toLowerCase()] || [];
     matchingDistros.forEach(distroId => {
-      scores[distroId] = (scores[distroId] || 0) + 15;
+      scores[distroId] = (scores[distroId] || 0) + 50;
       if (!matchReasons[distroId]) matchReasons[distroId] = [];
-      matchReasons[distroId].push(`${de} masaüstü ortamını çok beğendin`);
+      matchReasons[distroId].push(`${de} masaüstü ortamını bayıldın!`);
     });
   });
 
   preferences.likedDEs.forEach(de => {
-    const deKey = de.toLowerCase().replace(/\s+/g, '').replace('plasma', '');
-    const matchingDistros = DE_SCORES[deKey] || [];
+    if (preferences.superLikedDEs.includes(de)) return;
+    const deKey = de.toLowerCase().replace(/\s+/g, '').replace('plasma', '').replace('/', '');
+    const matchingDistros = DE_SCORES[deKey] || DE_SCORES[de.toLowerCase()] || [];
     matchingDistros.forEach(distroId => {
-      scores[distroId] = (scores[distroId] || 0) + 8;
+      scores[distroId] = (scores[distroId] || 0) + 10;
       if (!matchReasons[distroId]?.some(r => r.includes(de))) {
         matchReasons[distroId]?.push(`${de} desteği mevcut`);
       }
@@ -78,10 +79,10 @@ export function calculateDistroScores(preferences: UserPreferences): ScoredDistr
   });
 
   preferences.dislikedDEs.forEach(de => {
-    const deKey = de.toLowerCase().replace(/\s+/g, '').replace('plasma', '');
-    const matchingDistros = DE_SCORES[deKey] || [];
+    const deKey = de.toLowerCase().replace(/\s+/g, '').replace('plasma', '').replace('/', '');
+    const matchingDistros = DE_SCORES[deKey] || DE_SCORES[de.toLowerCase()] || [];
     matchingDistros.forEach(distroId => {
-      scores[distroId] = (scores[distroId] || 0) - 5;
+      scores[distroId] = (scores[distroId] || 0) - 15;
     });
   });
 
