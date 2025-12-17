@@ -4,6 +4,7 @@ import { Heart, X, RotateCcw, Zap } from 'lucide-react';
 interface ActionButtonsProps {
   onLike: () => void;
   onDislike: () => void;
+  onSuperLike?: () => void;
   onReset?: () => void;
   showReset?: boolean;
   disabled?: boolean;
@@ -12,6 +13,7 @@ interface ActionButtonsProps {
 export default function ActionButtons({
   onLike,
   onDislike,
+  onSuperLike,
   onReset,
   showReset = false,
   disabled = false,
@@ -69,6 +71,8 @@ export default function ActionButtons({
 
       <motion.button
         className="group relative flex h-14 w-14 items-center justify-center rounded-full"
+        onClick={onSuperLike}
+        disabled={disabled}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
         data-testid="button-superlike"

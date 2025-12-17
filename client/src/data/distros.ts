@@ -13,6 +13,7 @@ export interface DistroCard {
   desktopEnvironment: string;
   tags: string[];
   colorPalette: string[];
+  downloadUrl: string;
 }
 
 export const distroCards: DistroCard[] = [
@@ -24,6 +25,7 @@ export const distroCards: DistroCard[] = [
     desktopEnvironment: 'GNOME',
     tags: ['beginner-friendly', 'stable', 'popular'],
     colorPalette: ['#E95420', '#77216F', '#5E2750'],
+    downloadUrl: 'https://ubuntu.com/download',
   },
   {
     id: '2',
@@ -33,6 +35,7 @@ export const distroCards: DistroCard[] = [
     desktopEnvironment: 'i3wm',
     tags: ['advanced', 'minimal', 'customizable'],
     colorPalette: ['#1793D1', '#333333', '#0D47A1'],
+    downloadUrl: 'https://archlinux.org/download/',
   },
   {
     id: '3',
@@ -42,6 +45,7 @@ export const distroCards: DistroCard[] = [
     desktopEnvironment: 'Pantheon',
     tags: ['beautiful', 'simple', 'curated'],
     colorPalette: ['#64BAFF', '#3689E6', '#0D52BF'],
+    downloadUrl: 'https://elementary.io/',
   },
   {
     id: '4',
@@ -51,6 +55,7 @@ export const distroCards: DistroCard[] = [
     desktopEnvironment: 'KDE Plasma',
     tags: ['cutting-edge', 'developer', 'reliable'],
     colorPalette: ['#51A2DA', '#294172', '#3C6EB4'],
+    downloadUrl: 'https://fedoraproject.org/workstation/download',
   },
   {
     id: '5',
@@ -60,6 +65,7 @@ export const distroCards: DistroCard[] = [
     desktopEnvironment: 'Cinnamon',
     tags: ['familiar', 'stable', 'beginner-friendly'],
     colorPalette: ['#87CF3E', '#5FAD56', '#3E8E41'],
+    downloadUrl: 'https://linuxmint.com/download.php',
   },
   {
     id: '6',
@@ -69,5 +75,6 @@ export const distroCards: DistroCard[] = [
     desktopEnvironment: 'COSMIC',
     tags: ['gaming', 'developer', 'modern'],
     colorPalette: ['#FAA41A', '#48B9C7', '#574F4A'],
+    downloadUrl: 'https://pop.system76.com/',
   },
 ];

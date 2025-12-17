@@ -1,13 +1,14 @@
 import { motion } from 'framer-motion';
-import { PartyPopper, RotateCcw, Download, Trophy, Star, ExternalLink } from 'lucide-react';
+import { RotateCcw, Download, Trophy, Star, ExternalLink, Zap } from 'lucide-react';
 import type { DistroCard } from '@/data/distros';
 
 interface EndOfDeckProps {
   likedCards: DistroCard[];
+  superLikedCards: DistroCard[];
   onReset: () => void;
 }
 
-export default function EndOfDeck({ likedCards, onReset }: EndOfDeckProps) {
+export default function EndOfDeck({ likedCards, superLikedCards, onReset }: EndOfDeckProps) {
   return (
     <motion.div
       className="flex flex-col items-center gap-10 text-center px-4"
@@ -73,7 +74,14 @@ export default function EndOfDeck({ likedCards, onReset }: EndOfDeckProps) {
               data-testid={`result-card-${card.id}`}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-pink-500/20 backdrop-blur-xl" />
-              <div className="absolute inset-0 rounded-2xl border border-white/10" />
+              <div className={`absolute inset-0 rounded-2xl border ${superLikedCards.some(s => s.id === card.id) ? 'border-cyan-400/50' : 'border-white/10'}`} />
+              
+              {superLikedCards.some(s => s.id === card.id) && (
+                <div className="absolute top-2 left-2 z-20 flex items-center gap-1 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 px-2 py-1">
+                  <Zap className="h-3 w-3 text-white" fill="currentColor" />
+                  <span className="text-xs font-bold text-white">SUPER</span>
+                </div>
+              )}
               
               <div className="relative">
                 <img
@@ -83,11 +91,18 @@ export default function EndOfDeck({ likedCards, onReset }: EndOfDeckProps) {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                 
-                <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <div className="rounded-full bg-white/20 backdrop-blur-md p-2">
+                <a 
+                  href={card.downloadUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                  onClick={(e) => e.stopPropagation()}
+                  data-testid={`link-download-${card.id}`}
+                >
+                  <div className="rounded-full bg-white/20 backdrop-blur-md p-2 hover:bg-white/30 transition-colors">
                     <ExternalLink className="h-4 w-4 text-white" />
                   </div>
-                </div>
+                </a>
               </div>
               
               <div className="relative p-4 bg-gradient-to-r from-gray-900/90 to-gray-800/90">

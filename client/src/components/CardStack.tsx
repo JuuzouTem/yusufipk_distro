@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import SwipeCard from './SwipeCard';
 import ActionButtons from './ActionButtons';
@@ -13,19 +13,24 @@ interface CardStackProps {
 export default function CardStack({ cards, onBackgroundChange }: CardStackProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [likedCards, setLikedCards] = useState<DistroCard[]>([]);
+  const [superLikedCards, setSuperLikedCards] = useState<DistroCard[]>([]);
   const [dislikedCards, setDislikedCards] = useState<DistroCard[]>([]);
 
   const visibleCards = cards.slice(currentIndex, currentIndex + 3);
   const isFinished = currentIndex >= cards.length;
 
   const handleSwipe = useCallback(
-    (direction: 'left' | 'right') => {
+    (direction: 'left' | 'right' | 'super') => {
       const currentCard = cards[currentIndex];
       if (!currentCard) return;
 
       if (direction === 'right') {
         setLikedCards((prev) => [...prev, currentCard]);
         console.log('Liked:', currentCard.distroName);
+      } else if (direction === 'super') {
+        setSuperLikedCards((prev) => [...prev, currentCard]);
+        setLikedCards((prev) => [...prev, currentCard]);
+        console.log('Super Liked:', currentCard.distroName);
       } else {
         setDislikedCards((prev) => [...prev, currentCard]);
         console.log('Disliked:', currentCard.distroName);
@@ -42,6 +47,23 @@ export default function CardStack({ cards, onBackgroundChange }: CardStackProps)
     [currentIndex, cards, onBackgroundChange]
   );
 
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (currentIndex >= cards.length) return;
+      
+      if (e.key === 'ArrowLeft') {
+        handleSwipe('left');
+      } else if (e.key === 'ArrowRight') {
+        handleSwipe('right');
+      } else if (e.key === 'ArrowUp') {
+        handleSwipe('super');
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [handleSwipe, currentIndex, cards.length]);
+
   const handleReset = useCallback(() => {
     setCurrentIndex(0);
     setLikedCards([]);
@@ -52,7 +74,7 @@ export default function CardStack({ cards, onBackgroundChange }: CardStackProps)
   }, [cards, onBackgroundChange]);
 
   if (isFinished) {
-    return <EndOfDeck likedCards={likedCards} onReset={handleReset} />;
+    return <EndOfDeck likedCards={likedCards} superLikedCards={superLikedCards} onReset={handleReset} />;
   }
 
   return (
@@ -89,6 +111,7 @@ export default function CardStack({ cards, onBackgroundChange }: CardStackProps)
         <ActionButtons
           onLike={() => handleSwipe('right')}
           onDislike={() => handleSwipe('left')}
+          onSuperLike={() => handleSwipe('super')}
           onReset={handleReset}
           showReset={currentIndex > 0}
           disabled={isFinished}
