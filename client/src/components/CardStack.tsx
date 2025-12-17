@@ -81,6 +81,7 @@ export default function CardStack({ cards, onBackgroundChange }: CardStackProps)
       </div>
 
       <motion.div
+        className="mt-4"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3 }}
@@ -94,8 +95,21 @@ export default function CardStack({ cards, onBackgroundChange }: CardStackProps)
         />
       </motion.div>
 
-      <div className="text-center text-sm text-white/60">
-        {currentIndex + 1} / {cards.length}
+      <div className="mt-6 flex items-center gap-3 text-center">
+        <div className="flex gap-1.5">
+          {cards.map((_, idx) => (
+            <div
+              key={idx}
+              className={`h-1.5 w-8 rounded-full transition-all duration-300 ${
+                idx < currentIndex 
+                  ? 'bg-gradient-to-r from-purple-500 to-pink-500' 
+                  : idx === currentIndex 
+                    ? 'bg-white' 
+                    : 'bg-white/20'
+              }`}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
