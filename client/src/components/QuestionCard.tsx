@@ -36,7 +36,7 @@ export default function QuestionCard({ question, onSwipe, isTop, questionNumber,
 
   return (
     <motion.div
-      className="absolute cursor-grab active:cursor-grabbing"
+      className="cursor-grab active:cursor-grabbing"
       style={{ x, rotate, opacity }}
       drag={isTop ? 'x' : false}
       dragConstraints={{ left: 0, right: 0 }}

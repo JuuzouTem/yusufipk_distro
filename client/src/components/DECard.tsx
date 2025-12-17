@@ -67,7 +67,7 @@ export default function DECard({ de, onSwipe, isTop }: DECardProps) {
 
   return (
     <motion.div
-      className="absolute cursor-grab active:cursor-grabbing"
+      className="cursor-grab active:cursor-grabbing"
       style={{ x, rotate, opacity }}
       drag={isTop ? 'x' : false}
       dragConstraints={{ left: 0, right: 0 }}
